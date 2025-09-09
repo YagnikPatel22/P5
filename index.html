@@ -3,248 +3,221 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ditto — Modern Minimal Website</title>
-  <meta name="description" content="Clean, modern one-page website inspired by the design you requested." />
+  <title>GyanTherapy — Counseling & Wellness</title>
+  <meta name="description" content="Online counseling, therapy sessions and mental wellness programs." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1724; /* dark navy */
-      --card:#0b1220;
-      --muted:#98a0b3;
-      --accent:#4f46e5;
-      --glass: rgba(255,255,255,0.04);
-      --radius:16px;
-      color-scheme: dark;
+      --white:#ffffff;
+      --muted:#6b7280;
+      --accent:#0f766e; /* teal */
+      --accent-2:#06b6d4;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --radius:12px;
+      --glass: rgba(15,118,110,0.06);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(180deg,#071025 0%, #061426 60%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-    .container{max-width:1100px;margin:0 auto;padding:40px 24px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:6px 0}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;box-shadow:0 6px 18px rgba(79,70,229,0.22)}
-    h1.site-title{font-size:18px;margin:0}
-    nav{display:flex;gap:18px;align-items:center}
-    a.nav-link{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
-    a.nav-link:hover{color:#fff}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#0f1724;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .logo{display:flex;gap:12px;align-items:center}
+    .logo-mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
+    nav{display:flex;gap:18px}
+    a{color:inherit;text-decoration:none}
+    a.nav{color:var(--muted);font-weight:600}
+    .cta{display:flex;gap:10px}
+    .btn{background:var(--accent);color:var(--white);padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(15,118,110,0.12);color:var(--accent)}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;margin-top:28px}
-    .hero-left h2{font-size:40px;margin:0 0 12px;line-height:1.03}
-    .hero-left p{color:var(--muted);margin-bottom:20px;font-size:16px}
-    .cta-row{display:flex;gap:12px}
-    .btn{background:var(--accent);border:none;padding:12px 18px;border-radius:12px;color:white;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(79,70,229,0.18);transition:transform .18s ease}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
-    .btn:active{transform:translateY(1px)}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
+    .hero h1{font-size:34px;margin:0;line-height:1.02}
+    .hero p{color:var(--muted);margin-top:10px}
 
-    /* Card on hero-right */
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:22px;border-radius:18px;backdrop-filter:blur(6px);box-shadow:0 6px 30px rgba(2,6,23,0.7)}
-    .small{font-size:13px;color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);font-weight:700;color:var(--accent);font-size:13px}
+    /* booking card */
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,0.06)}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--accent);font-weight:700}
 
-    .features{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .feature{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px}
-    .feature h3{margin:6px 0 4px}
-    .feature p{color:var(--muted);font-size:14px}
+    /* services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+    .service{background:var(--card);padding:16px;border-radius:12px}
+    .service h3{margin:6px 0}
 
-    /* About & Services */
-    .section{margin-top:64px}
-    .section h2{font-size:22px;margin-bottom:10px}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .service{padding:20px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.014),transparent)}
+    /* therapists */
+    .therapists{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    .therapist{background:var(--card);padding:14px;border-radius:12px;text-align:center}
+    .avatar{width:92px;height:92px;border-radius:12px;display:block;margin:0 auto 8px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
 
-    /* Testimonials */
-    .testimonials{display:flex;gap:12px;align-items:center;margin-top:18px}
-    .quote{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px}
+    /* testimonials */
+    .testimonials{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .testimonial{background:var(--card);padding:16px;border-radius:12px}
 
-    /* Contact footer */
-    footer{margin-top:64px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
-    .socials{display:flex;gap:12px}
+    /* footer */
+    footer{margin-top:36px;padding:20px;border-radius:12px;background:transparent}
 
     /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .features{grid-template-columns:repeat(2,1fr)}
-      .grid-2{grid-template-columns:1fr}
-    }
-    @media (max-width:520px){
-      .features{grid-template-columns:1fr}
-    }
+    @media (max-width:980px){.hero{grid-template-columns:1fr}.services,.therapists{grid-template-columns:repeat(2,1fr)}.testimonials{grid-template-columns:1fr}}
+    @media (max-width:600px){.services,.therapists{grid-template-columns:1fr}}
 
-    /* small micro animations */
-    .float{animation:float 6s ease-in-out infinite}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+    /* form styles */
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:transparent}
+    label{font-weight:600;color:#0f1724}
 
-    /* utility */
-    .muted{color:var(--muted)}
-    .center{display:flex;align-items:center;justify-content:center}
+    /* minor animations */
+    .fade-in{animation:fadeIn 700ms ease both}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-    /* input */
-    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="logo">D</div>
+      <div class="logo">
+        <div class="logo-mark">G</div>
         <div>
-          <div class="site-title">Ditto</div>
-          <div class="small muted">Build. Learn. Launch.</div>
+          <div style="font-weight:800">GyanTherapy</div>
+          <div class="muted" style="font-size:13px">Counseling & Mental Wellness</div>
         </div>
       </div>
+
       <nav>
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav" href="#services">Services</a>
+        <a class="nav" href="#therapists">Therapists</a>
+        <a class="nav" href="#testimonials">Reviews</a>
+        <a class="nav" href="#contact">Contact</a>
       </nav>
+
+      <div class="cta">
+        <button class="btn ghost" id="loginBtn">Login</button>
+        <button class="btn" id="bookBtn">Book a Session</button>
+      </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-left">
-          <h2>Practical learning, guided growth — all in one place.</h2>
-          <p>We combine short lessons, expert mentorship and hands-on projects to help students and professionals learn fast and build products that matter.</p>
-          <div class="cta-row">
-            <button class="btn" id="getStarted">Get started — it's free</button>
-            <button class="btn secondary" id="watchDemo">Watch demo</button>
+      <section class="hero fade-in">
+        <div>
+          <h1>Online counseling & therapy — accessible, empathetic, evidence-based.</h1>
+          <p class="muted">One-on-one video sessions, group workshops and self-help programs designed for students, professionals and families.</p>
+
+          <div style="display:flex;gap:12px;margin-top:18px">
+            <button class="btn" onclick="openBooking()">Book a session</button>
+            <button class="btn ghost" onclick="scrollTo('#services')">Explore services</button>
           </div>
 
-          <div class="features" style="margin-top:26px">
-            <div class="feature">
-              <div class="pill">Live classes</div>
-              <h3>Interactive sessions</h3>
-              <p>Short live classes with hands-on examples and instant feedback.</p>
+          <div class="services" style="margin-top:22px">
+            <div class="service">
+              <div class="pill">One-on-one</div>
+              <h3>Individual Therapy</h3>
+              <p class="muted">Personalized sessions for anxiety, depression, stress and life transitions.</p>
             </div>
-            <div class="feature">
-              <div class="pill">Projects</div>
-              <h3>Real projects</h3>
-              <p>Complete product style projects to add to your portfolio.</p>
+            <div class="service">
+              <div class="pill">Group</div>
+              <h3>Group Workshops</h3>
+              <p class="muted">Themed group programs: relationships, exam stress, workplace wellbeing.</p>
             </div>
-            <div class="feature">
-              <div class="pill">Mentors</div>
-              <h3>Personal mentors</h3>
-              <p>Dedicated mentors who review your code and give improvement tips.</p>
+            <div class="service">
+              <div class="pill">Self-paced</div>
+              <h3>Self-Help Programs</h3>
+              <p class="muted">Structured modules with videos, exercises and progress tracking.</p>
             </div>
           </div>
         </div>
 
-        <aside class="card float">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="small">Upcoming cohort</div>
-              <div style="font-weight:800;margin-top:6px">Full-Stack Sprint — Sep 22, 2025</div>
-              <div class="small muted" style="margin-top:6px">Limited seats • 6 weeks • Project-focused</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-size:22px;font-weight:800">₹2999</div>
-              <div class="small muted">one-time</div>
-            </div>
-          </div>
-
-          <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:14px 0;border-radius:2px">
-
-          <div style="display:flex;gap:10px;align-items:center;justify-content:space-between">
-            <div style="display:flex;gap:10px;align-items:center">
-              <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='44' height='44'><rect rx='10' width='44' height='44' fill='%234f46e5'/></svg>" alt="avatar" style="width:44px;height:44px;border-radius:10px">
+        <aside class="card">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
               <div>
-                <div style="font-weight:700">Asha Sharma</div>
-                <div class="small muted">Instructor</div>
+                <div class="muted" style="font-size:13px">Need support right away?</div>
+                <div style="font-weight:800;margin-top:6px">Book an initial consultation</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-weight:800">₹499</div>
+                <div class="muted" style="font-size:12px">30 min</div>
               </div>
             </div>
-            <button class="btn">Join waitlist</button>
+
+            <form id="miniBook" onsubmit="handleMiniBook(event)">
+              <div style="margin-top:8px">
+                <label for="mb-name">Name</label>
+                <input id="mb-name" required />
+              </div>
+              <div style="margin-top:8px">
+                <label for="mb-phone">Phone or Email</label>
+                <input id="mb-phone" required />
+              </div>
+              <div style="margin-top:8px;display:flex;gap:8px">
+                <button class="btn" type="submit">Book now</button>
+                <button class="btn ghost" type="button" onclick="openBooking()">More options</button>
+              </div>
+              <div id="miniStatus" class="muted" style="margin-top:8px;font-size:13px"></div>
+            </form>
           </div>
         </aside>
       </section>
 
-      <section id="services" class="section">
-        <h2>What we offer</h2>
-        <div class="grid-2">
-          <div class="service">
-            <h3>Short guided courses</h3>
-            <p class="muted">Bite-sized lessons with quizzes, code sandbox and project checkpoints.</p>
-            <ul class="muted" style="margin-top:8px">
-              <li>10–30 minute lessons</li>
-              <li>Weekly project reviews</li>
-              <li>Peer discussion groups</li>
-            </ul>
-          </div>
-          <div class="service">
-            <h3>Career & mentorship</h3>
-            <p class="muted">Career sessions, interview prep and CV reviews by industry mentors.</p>
-            <ul class="muted" style="margin-top:8px">
-              <li>Mock interviews</li>
-              <li>Portfolio review</li>
-              <li>Job-ready projects</li>
-            </ul>
-          </div>
+      <section id="therapists" class="therapists">
+        <div class="therapist card">
+          <div class="avatar"></div>
+          <div style="font-weight:700">Dr. Aarti Mehra</div>
+          <div class="muted">Clinical Psychologist</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:14px">Specializes in anxiety and adolescent therapy.</div>
+          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Aarti')">View</button></div>
+        </div>
+        <div class="therapist card">
+          <div class="avatar"></div>
+          <div style="font-weight:700">Mr. Rahul Singh</div>
+          <div class="muted">Counselor</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:14px">Career counseling & stress management.</div>
+          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Rahul')">View</button></div>
+        </div>
+        <div class="therapist card">
+          <div class="avatar"></div>
+          <div style="font-weight:700">Ms. Sanya Roy</div>
+          <div class="muted">Therapist</div>
+          <div style="margin-top:8px;color:var(--muted);font-size:14px">Couples & relationship therapy.</div>
+          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Sanya')">View</button></div>
         </div>
       </section>
 
-      <section id="about" class="section">
-        <h2>About Ditto</h2>
-        <p class="muted">We launched Ditto to make learning product-focused skills easier. Our goal is to help learners ship real projects faster and land meaningful roles. We believe short focused practice beats long unfocused study.</p>
-
-        <div class="testimonials" aria-label="testimonials">
-          <div class="quote">
-            <strong>"I built my first portfolio project in 2 weeks."</strong>
-            <div class="small muted">— Rohan, Student</div>
-          </div>
-          <div class="quote">
-            <strong>"Mentor feedback was actionable and fast."</strong>
-            <div class="small muted">— Nisha, Developer</div>
-          </div>
+      <section id="testimonials" class="testimonials">
+        <div class="testimonial card">
+          <strong>"The sessions helped me manage exam stress and sleep better."</strong>
+          <div class="muted" style="margin-top:8px">— Ankit, Student</div>
+        </div>
+        <div class="testimonial card">
+          <strong>"Professional and empathetic — great experience overall."</strong>
+          <div class="muted" style="margin-top:8px">— Priya, Young Professional</div>
         </div>
       </section>
 
-      <section id="contact" class="section">
-        <h2>Contact / Join</h2>
-        <div class="grid-2">
-          <div>
-            <p class="muted">Want to try a course or partner with us? Drop your details and we'll reach out.</p>
-            <form id="contactForm" onsubmit="handleContact(event)">
-              <div style="margin-top:12px">
-                <input id="name" placeholder="Your name" required />
-              </div>
-              <div style="margin-top:12px">
-                <input id="email" type="email" placeholder="Email" required />
-              </div>
-              <div style="margin-top:12px">
-                <textarea id="message" rows="4" placeholder="How can we help?" required></textarea>
-              </div>
-              <div style="margin-top:12px;display:flex;gap:10px">
-                <button class="btn" type="submit">Send message</button>
-                <button type="button" class="btn secondary" onclick="copyDemoLink()">Copy demo link</button>
-              </div>
-              <div id="formStatus" class="small muted" style="margin-top:8px"></div>
-            </form>
-          </div>
-
-          <div>
-            <div class="card" style="padding:18px">
-              <h3>Office</h3>
-              <p class="muted">Mumbai · Remote
-                <br>support@ditto.example</p>
-              <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0;border-radius:2px">
-              <div class="small muted">Follow</div>
-              <div class="socials" style="margin-top:8px">
-                <a href="#" class="small muted">Twitter</a>
-                <a href="#" class="small muted">LinkedIn</a>
-                <a href="#" class="small muted">YouTube</a>
-              </div>
+      <section id="contact" style="margin-top:28px">
+        <div class="card">
+          <h3>Contact / Enquiries</h3>
+          <p class="muted">Want to discuss partnerships, workshops or mental health programs for your organisation? Drop us a message.</p>
+          <form id="contactForm" onsubmit="handleContact(event)" style="margin-top:12px;display:grid;gap:10px">
+            <div>
+              <label for="c-name">Name</label>
+              <input id="c-name" required />
             </div>
-          </div>
+            <div>
+              <label for="c-email">Email</label>
+              <input id="c-email" type="email" required />
+            </div>
+            <div>
+              <label for="c-message">Message</label>
+              <textarea id="c-message" rows="4" required></textarea>
+            </div>
+            <div style="display:flex;gap:10px">
+              <button class="btn" type="submit">Send message</button>
+              <button type="button" class="btn ghost" onclick="copySupport()">Copy contact</button>
+            </div>
+            <div id="contactStatus" class="muted"></div>
+          </form>
         </div>
       </section>
 
@@ -253,45 +226,69 @@
     <footer>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
         <div style="display:flex;gap:12px;align-items:center">
-          <div class="logo" style="width:40px;height:40px;border-radius:10px">D</div>
+          <div class="logo-mark" style="width:44px;height:44px;border-radius:10px">G</div>
           <div>
-            <div style="font-weight:700">Ditto</div>
-            <div class="small muted">Build. Learn. Launch.</div>
+            <div style="font-weight:700">GyanTherapy</div>
+            <div class="muted">Support: support@gyan.example</div>
           </div>
         </div>
-        <div class="muted">© Ditto 2025</div>
+        <div class="muted">© GyanTherapy 2025</div>
       </div>
     </footer>
   </div>
 
+  <!-- Booking modal (basic client-side simulation) -->
+  <div id="bookingModal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,0.45)"> 
+    <div style="max-width:720px;width:100%;background:var(--card);padding:20px;border-radius:12px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:800">Book a session</div>
+        <button onclick="closeBooking()" class="btn ghost">Close</button>
+      </div>
+      <form id="bookingForm" onsubmit="submitBooking(event)" style="margin-top:12px;display:grid;gap:10px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div>
+            <label>Name</label>
+            <input id="b-name" required />
+          </div>
+          <div>
+            <label>Email / Phone</label>
+            <input id="b-contact" required />
+          </div>
+        </div>
+        <div>
+          <label>Select service</label>
+          <select id="b-service">
+            <option>Initial Consultation — 30 min</option>
+            <option>Therapy Session — 60 min</option>
+            <option>Couples Session — 60 min</option>
+          </select>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn" type="submit">Confirm booking</button>
+          <button type="button" class="btn ghost" onclick="closeBooking()">Cancel</button>
+        </div>
+        <div id="bookingStatus" class="muted"></div>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Small JS interactions
-    function handleContact(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const status = document.getElementById('formStatus');
-      // In a real site you'd send this to a server. Here we simulate success.
-      status.textContent = 'Sending...';
-      setTimeout(()=>{
-        status.textContent = `Thanks ${name || 'friend'}! We'll reach out at ${email}.`;
-        document.getElementById('contactForm').reset();
-      },700);
-    }
-    function copyDemoLink(){
-      const demo = location.href;
-      navigator.clipboard?.writeText(demo).then(()=>{
-        alert('Demo link copied to clipboard');
-      }).catch(()=>{alert('Could not copy.');});
-    }
-    document.getElementById('getStarted').addEventListener('click',()=>{
-      window.location.hash='#contact';
-      document.getElementById('name').focus();
-    });
-    document.getElementById('watchDemo').addEventListener('click',()=>{
-      alert('Demo coming soon — play with the sample projects below!');
-    });
+    function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
+    function openBooking(){document.getElementById('bookingModal').style.display='flex'}
+    function closeBooking(){document.getElementById('bookingModal').style.display='none'}
+
+    function handleMiniBook(e){e.preventDefault();const n=document.getElementById('mb-name').value;const c=document.getElementById('mb-phone').value;document.getElementById('miniStatus').textContent='Booking requested — check your inbox.';setTimeout(()=>{document.getElementById('miniStatus').textContent=`Thanks ${n}. We'll contact you at ${c}.`;document.getElementById('miniBook').reset()},700)}
+
+    function handleContact(e){e.preventDefault();const n=document.getElementById('c-name').value;const em=document.getElementById('c-email').value;document.getElementById('contactStatus').textContent='Sending...';setTimeout(()=>{document.getElementById('contactStatus').textContent=`Thanks ${n}! We will reply to ${em} soon.`;document.getElementById('contactForm').reset()},900)}
+
+    function submitBooking(e){e.preventDefault();const n=document.getElementById('b-name').value;const c=document.getElementById('b-contact').value;document.getElementById('bookingStatus').textContent='Confirming...';setTimeout(()=>{document.getElementById('bookingStatus').textContent=`Booked — Hi ${n}. Confirmation sent to ${c}.`;document.getElementById('bookingForm').reset();closeBooking()},900)}
+
+    function copySupport(){navigator.clipboard?.writeText('support@gyan.example').then(()=>alert('Support email copied'))}
+    function openProfile(name){alert('Open profile page for '+name)}
+
+    // small event bindings
+    document.getElementById('bookBtn').addEventListener('click',openBooking);
+    document.getElementById('loginBtn').addEventListener('click',()=>alert('Login coming soon'));
   </script>
 </body>
 </html>
