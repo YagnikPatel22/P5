@@ -1,294 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GyanTherapy — Counseling & Wellness</title>
-  <meta name="description" content="Online counseling, therapy sessions and mental wellness programs." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iYags - Portfolio</title>
   <style>
-    :root{
-      --white:#ffffff;
-      --muted:#6b7280;
-      --accent:#0f766e; /* teal */
-      --accent-2:#06b6d4;
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --radius:12px;
-      --glass: rgba(15,118,110,0.06);
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #222; background: #f9f9f9; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#0f1724;-webkit-font-smoothing:antialiased}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .logo{display:flex;gap:12px;align-items:center}
-    .logo-mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:800}
-    nav{display:flex;gap:18px}
-    a{color:inherit;text-decoration:none}
-    a.nav{color:var(--muted);font-weight:600}
-    .cta{display:flex;gap:10px}
-    .btn{background:var(--accent);color:var(--white);padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
-    .btn.ghost{background:transparent;border:1px solid rgba(15,118,110,0.12);color:var(--accent)}
+    .nav-container {
+      max-width: 1200px; margin: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem;
+    }
+    .logo { font-weight: bold; font-size: 1.4rem; color: #111; }
+    nav ul { display: flex; list-style: none; }
+    nav li { margin-left: 20px; }
+    nav a:hover { color: #0077ff; }
+
+    /* General Sections */
+    section {
+      padding: 6rem 2rem 4rem;
+      max-width: 1200px; margin: auto;
+    }
+    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
-    .hero h1{font-size:34px;margin:0;line-height:1.02}
-    .hero p{color:var(--muted);margin-top:10px}
+    .hero {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem;
+      padding-top: 8rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-text h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero-text p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .highlight { color: #0077ff; font-weight: bold; }
+    .hero img { flex: 1; max-width: 400px; border-radius: 50%; }
 
-    /* booking card */
-    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(15,23,42,0.06)}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);color:var(--accent);font-weight:700}
+    /* Social */
+    .social { display: flex; gap: 15px; margin-top: 1rem; }
+    .social a { font-size: 1.3rem; color: #0077ff; }
 
-    /* services */
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
-    .service{background:var(--card);padding:16px;border-radius:12px}
-    .service h3{margin:6px 0}
+    /* Work section */
+    .videos {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #fff; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card iframe { width: 100%; height: 180px; }
+    .card-body { padding: 1rem; }
+    .card-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .btn {
+      display: inline-block; background: #0077ff; color: #fff; padding: 0.5rem 1rem;
+      border-radius: 5px; margin-top: 0.5rem;
+    }
+    .btn:hover { background: #005fcc; }
 
-    /* therapists */
-    .therapists{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-    .therapist{background:var(--card);padding:14px;border-radius:12px;text-align:center}
-    .avatar{width:92px;height:92px;border-radius:12px;display:block;margin:0 auto 8px;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+    /* Gallery */
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-grid img {
+      width: 100%; border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-    /* testimonials */
-    .testimonials{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .testimonial{background:var(--card);padding:16px;border-radius:12px}
+    /* Team */
+    .team-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; text-align: center;
+    }
+    .team-member {
+      background: #fff; padding: 1.5rem; border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .team-member img {
+      width: 120px; height: 120px; object-fit: cover;
+      border-radius: 50%; margin-bottom: 1rem;
+    }
 
-    /* footer */
-    footer{margin-top:36px;padding:20px;border-radius:12px;background:transparent}
-
-    /* responsive */
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.services,.therapists{grid-template-columns:repeat(2,1fr)}.testimonials{grid-template-columns:1fr}}
-    @media (max-width:600px){.services,.therapists{grid-template-columns:1fr}}
-
-    /* form styles */
-    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef8;background:transparent}
-    label{font-weight:600;color:#0f1724}
-
-    /* minor animations */
-    .fade-in{animation:fadeIn 700ms ease both}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
+    /* Footer */
+    footer {
+      background: #111; color: #eee; text-align: center;
+      padding: 2rem 1rem; margin-top: 3rem;
+    }
+    footer .social { justify-content: center; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <div class="logo-mark">G</div>
-        <div>
-          <div style="font-weight:800">GyanTherapy</div>
-          <div class="muted" style="font-size:13px">Counseling & Mental Wellness</div>
-        </div>
-      </div>
-
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">iYags</div>
       <nav>
-        <a class="nav" href="#services">Services</a>
-        <a class="nav" href="#therapists">Therapists</a>
-        <a class="nav" href="#testimonials">Reviews</a>
-        <a class="nav" href="#contact">Contact</a>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#about">About Us</a></li>
+        </ul>
       </nav>
-
-      <div class="cta">
-        <button class="btn ghost" id="loginBtn">Login</button>
-        <button class="btn" id="bookBtn">Book a Session</button>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero fade-in">
-        <div>
-          <h1>Online counseling & therapy — accessible, empathetic, evidence-based.</h1>
-          <p class="muted">One-on-one video sessions, group workshops and self-help programs designed for students, professionals and families.</p>
-
-          <div style="display:flex;gap:12px;margin-top:18px">
-            <button class="btn" onclick="openBooking()">Book a session</button>
-            <button class="btn ghost" onclick="scrollTo('#services')">Explore services</button>
-          </div>
-
-          <div class="services" style="margin-top:22px">
-            <div class="service">
-              <div class="pill">One-on-one</div>
-              <h3>Individual Therapy</h3>
-              <p class="muted">Personalized sessions for anxiety, depression, stress and life transitions.</p>
-            </div>
-            <div class="service">
-              <div class="pill">Group</div>
-              <h3>Group Workshops</h3>
-              <p class="muted">Themed group programs: relationships, exam stress, workplace wellbeing.</p>
-            </div>
-            <div class="service">
-              <div class="pill">Self-paced</div>
-              <h3>Self-Help Programs</h3>
-              <p class="muted">Structured modules with videos, exercises and progress tracking.</p>
-            </div>
-          </div>
-        </div>
-
-        <aside class="card">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;justify-content:space-between;align-items:center">
-              <div>
-                <div class="muted" style="font-size:13px">Need support right away?</div>
-                <div style="font-weight:800;margin-top:6px">Book an initial consultation</div>
-              </div>
-              <div style="text-align:right">
-                <div style="font-weight:800">₹499</div>
-                <div class="muted" style="font-size:12px">30 min</div>
-              </div>
-            </div>
-
-            <form id="miniBook" onsubmit="handleMiniBook(event)">
-              <div style="margin-top:8px">
-                <label for="mb-name">Name</label>
-                <input id="mb-name" required />
-              </div>
-              <div style="margin-top:8px">
-                <label for="mb-phone">Phone or Email</label>
-                <input id="mb-phone" required />
-              </div>
-              <div style="margin-top:8px;display:flex;gap:8px">
-                <button class="btn" type="submit">Book now</button>
-                <button class="btn ghost" type="button" onclick="openBooking()">More options</button>
-              </div>
-              <div id="miniStatus" class="muted" style="margin-top:8px;font-size:13px"></div>
-            </form>
-          </div>
-        </aside>
-      </section>
-
-      <section id="therapists" class="therapists">
-        <div class="therapist card">
-          <div class="avatar"></div>
-          <div style="font-weight:700">Dr. Aarti Mehra</div>
-          <div class="muted">Clinical Psychologist</div>
-          <div style="margin-top:8px;color:var(--muted);font-size:14px">Specializes in anxiety and adolescent therapy.</div>
-          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Aarti')">View</button></div>
-        </div>
-        <div class="therapist card">
-          <div class="avatar"></div>
-          <div style="font-weight:700">Mr. Rahul Singh</div>
-          <div class="muted">Counselor</div>
-          <div style="margin-top:8px;color:var(--muted);font-size:14px">Career counseling & stress management.</div>
-          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Rahul')">View</button></div>
-        </div>
-        <div class="therapist card">
-          <div class="avatar"></div>
-          <div style="font-weight:700">Ms. Sanya Roy</div>
-          <div class="muted">Therapist</div>
-          <div style="margin-top:8px;color:var(--muted);font-size:14px">Couples & relationship therapy.</div>
-          <div style="margin-top:10px"><button class="btn ghost" onclick="openProfile('Sanya')">View</button></div>
-        </div>
-      </section>
-
-      <section id="testimonials" class="testimonials">
-        <div class="testimonial card">
-          <strong>"The sessions helped me manage exam stress and sleep better."</strong>
-          <div class="muted" style="margin-top:8px">— Ankit, Student</div>
-        </div>
-        <div class="testimonial card">
-          <strong>"Professional and empathetic — great experience overall."</strong>
-          <div class="muted" style="margin-top:8px">— Priya, Young Professional</div>
-        </div>
-      </section>
-
-      <section id="contact" style="margin-top:28px">
-        <div class="card">
-          <h3>Contact / Enquiries</h3>
-          <p class="muted">Want to discuss partnerships, workshops or mental health programs for your organisation? Drop us a message.</p>
-          <form id="contactForm" onsubmit="handleContact(event)" style="margin-top:12px;display:grid;gap:10px">
-            <div>
-              <label for="c-name">Name</label>
-              <input id="c-name" required />
-            </div>
-            <div>
-              <label for="c-email">Email</label>
-              <input id="c-email" type="email" required />
-            </div>
-            <div>
-              <label for="c-message">Message</label>
-              <textarea id="c-message" rows="4" required></textarea>
-            </div>
-            <div style="display:flex;gap:10px">
-              <button class="btn" type="submit">Send message</button>
-              <button type="button" class="btn ghost" onclick="copySupport()">Copy contact</button>
-            </div>
-            <div id="contactStatus" class="muted"></div>
-          </form>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div style="display:flex;gap:12px;align-items:center">
-          <div class="logo-mark" style="width:44px;height:44px;border-radius:10px">G</div>
-          <div>
-            <div style="font-weight:700">GyanTherapy</div>
-            <div class="muted">Support: support@gyan.example</div>
-          </div>
-        </div>
-        <div class="muted">© GyanTherapy 2025</div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Booking modal (basic client-side simulation) -->
-  <div id="bookingModal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,0.45)"> 
-    <div style="max-width:720px;width:100%;background:var(--card);padding:20px;border-radius:12px">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div style="font-weight:800">Book a session</div>
-        <button onclick="closeBooking()" class="btn ghost">Close</button>
-      </div>
-      <form id="bookingForm" onsubmit="submitBooking(event)" style="margin-top:12px;display:grid;gap:10px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div>
-            <label>Name</label>
-            <input id="b-name" required />
-          </div>
-          <div>
-            <label>Email / Phone</label>
-            <input id="b-contact" required />
-          </div>
-        </div>
-        <div>
-          <label>Select service</label>
-          <select id="b-service">
-            <option>Initial Consultation — 30 min</option>
-            <option>Therapy Session — 60 min</option>
-            <option>Couples Session — 60 min</option>
-          </select>
-        </div>
-        <div style="display:flex;gap:10px">
-          <button class="btn" type="submit">Confirm booking</button>
-          <button type="button" class="btn ghost" onclick="closeBooking()">Cancel</button>
-        </div>
-        <div id="bookingStatus" class="muted"></div>
-      </form>
     </div>
-  </div>
+  </header>
 
-  <script>
-    function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
-    function openBooking(){document.getElementById('bookingModal').style.display='flex'}
-    function closeBooking(){document.getElementById('bookingModal').style.display='none'}
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Hello, I'm <span class="highlight">Yagnik Patel</span></h1>
+      <p>Explorer | ICT Engineer | Creator</p>
+      <h2>One of the most <span class="highlight">Loved Tech creators</span> by viewers</h2>
+      <div class="social">
+        <a href="#">YT</a>
+        <a href="#">IG</a>
+        <a href="#">X</a>
+        <a href="#">IN</a>
+      </div>
+    </div>
+    <img src="https://via.placeholder.com/400" alt="Profile Image">
+  </section>
 
-    function handleMiniBook(e){e.preventDefault();const n=document.getElementById('mb-name').value;const c=document.getElementById('mb-phone').value;document.getElementById('miniStatus').textContent='Booking requested — check your inbox.';setTimeout(()=>{document.getElementById('miniStatus').textContent=`Thanks ${n}. We'll contact you at ${c}.`;document.getElementById('miniBook').reset()},700)}
+  <!-- Events -->
+  <section id="events">
+    <h2>Events</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      Stay tuned for upcoming events, workshops, and live sessions hosted by Yagnik Patel.  
+      (You can update this section with real event info later.)
+    </p>
+  </section>
 
-    function handleContact(e){e.preventDefault();const n=document.getElementById('c-name').value;const em=document.getElementById('c-email').value;document.getElementById('contactStatus').textContent='Sending...';setTimeout(()=>{document.getElementById('contactStatus').textContent=`Thanks ${n}! We will reply to ${em} soon.`;document.getElementById('contactForm').reset()},900)}
+  <!-- Work -->
+  <section id="work">
+    <h2>Our Work</h2>
+    <div class="videos">
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <div class="card-body">
+          <h3>Video Title 1</h3>
+          <a href="#" class="btn">Watch Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <div class="card-body">
+          <h3>Video Title 2</h3>
+          <a href="#" class="btn">Watch Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <div class="card-body">
+          <h3>Video Title 3</h3>
+          <a href="#" class="btn">Watch Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function submitBooking(e){e.preventDefault();const n=document.getElementById('b-name').value;const c=document.getElementById('b-contact').value;document.getElementById('bookingStatus').textContent='Confirming...';setTimeout(()=>{document.getElementById('bookingStatus').textContent=`Booked — Hi ${n}. Confirmation sent to ${c}.`;document.getElementById('bookingForm').reset();closeBooking()},900)}
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="https://via.placeholder.com/400x250" alt="Gallery 1">
+      <img src="https://via.placeholder.com/400x250" alt="Gallery 2">
+      <img src="https://via.placeholder.com/400x250" alt="Gallery 3">
+      <img src="https://via.placeholder.com/400x250" alt="Gallery 4">
+    </div>
+  </section>
 
-    function copySupport(){navigator.clipboard?.writeText('support@gyan.example').then(()=>alert('Support email copied'))}
-    function openProfile(name){alert('Open profile page for '+name)}
+  <!-- Team -->
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h3>Yagnik Patel</h3>
+        <p>Founder & Creator</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h3>Team Member 2</h3>
+        <p>Editor</p>
+      </div>
+      <div class="team-member">
+        <img src="https://via.placeholder.com/150" alt="Team Member">
+        <h3>Team Member 3</h3>
+        <p>Designer</p>
+      </div>
+    </div>
+  </section>
 
-    // small event bindings
-    document.getElementById('bookBtn').addEventListener('click',openBooking);
-    document.getElementById('loginBtn').addEventListener('click',()=>alert('Login coming soon'));
-  </script>
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      iYags is a creative platform by Yagnik Patel, dedicated to technology, innovation, and motivation.  
+      Through videos, events, and creative work, we aim to inspire and connect with audiences worldwide.  
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 iYags. All rights reserved.</p>
+    <div class="social">
+      <a href="#">YT</a>
+      <a href="#">IG</a>
+      <a href="#">X</a>
+      <a href="#">IN</a>
+    </div>
+  </footer>
 </body>
 </html>
